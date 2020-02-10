@@ -54,9 +54,10 @@ print(newlist2)
 
 #Problem 4
 #a
-import numpy as np
-a = list(range(1,21,1))
-print(np.diff(a))
+list1 = list(range(1,21,1))
+list2 = list(range(20,0,-1))
+a = [a_i - b_i for a_i, b_i in zip(list1, list2)]
+print(a)
 
 
 #b
@@ -73,20 +74,24 @@ print(result)
 
 #Problem 5
 #a
+# read txt file
 f = open('lorem.txt','r') 
 data = f.read()
+# delete blank list
 lines = data.split("\n\n")
 
 def listToString(s): 
     str1 = " " 
     return (str1.join(s)) 
-   
+
+# split into words   
 words = listToString(lines)
 
 lengh1to4=[]
 lengh4to7=[]
 lengh8=[]   
-    
+
+# set logistic statement to count length    
 str_vals = words.split()
 for one_str in str_vals:
     length = len(one_str) 
@@ -101,7 +106,7 @@ for one_str in str_vals:
     if length >= 8:
         lengh8.append(length)
                 
-
+# print answers
 print('Number of strings whose lengths is 1-4 = %s' % (len(lengh1to4),))
 print('Number of strings whose lengths is 4-7 = %s' % (len(lengh4to7),))        
 print('Number of strings whose lengths is 8 or greater = %s' % (len(lengh8),))
